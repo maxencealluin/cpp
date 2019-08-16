@@ -21,6 +21,7 @@ public:
 	Contact( void );
 	~Contact( void );
 
+	int			idx;
 	int			used;
 	std::string	first_name;
 	std::string	last_name;
@@ -32,6 +33,7 @@ public:
 	std::string underwear_color;
 	std::string darkest_secret;
 	void	add(void);
+	void	display(void);
 };
 
 #endif
