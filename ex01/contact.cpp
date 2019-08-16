@@ -24,7 +24,7 @@ Contact::~Contact( void ) {
 
 void	Contact::add(void) {
 	this->used = 1;
-	std::cout << "Please provide contact informations:" << std::endl;
+	std::cout << "\nPlease provide contact informations:" << std::endl;
 	std::cout << "First name: ";
 	std::getline(std::cin, this->first_name);
 	std::cout << "Last name: ";

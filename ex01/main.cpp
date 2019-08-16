@@ -47,15 +47,13 @@ int		main(void)
 	while (!exit)
 	{
 		std::cout << "\nPlease input command (SEARCH, ADD or EXIT): " ;
-		// std::cin >> cmd;
-		std::getline(std::cin, cmd);
-		// std::cout << std::endl;
+		std::getline(std::cin, cmd, '\n');
 		if (cmd == "ADD")
 			if (idx == 8)
-				{
+			{
 				std::cout << "Contacts full, replacing first contact." << std::endl;
 				instance[0].add();
-				}
+			}
 			else
 				instance[idx++].add();
 		else if (cmd == "SEARCH")
@@ -73,20 +71,15 @@ int		main(void)
 					display_contact(instance[j], j);
 				std::cout << "\nPlease enter the desired index: ";
 				choice = -1;
-				while (choice == -1)
-					{
-					std::cin >> choice;
-					std::cout << std::endl;
-					if (!std::cin.good())
-					{
-						choice = -1;
-						std::cout << "\n Please provide a correct number." << std::endl;
-					}
-					}
-				if (choice >= 0 && choice < idx)
+				std::cin >> choice;
+				std::cout << std::endl;
+				if (std::cin.good() && choice >= 0 && choice < idx)
 					instance[choice].display();
 				else
+				{
 					std::cout << "Incorrect index, must be between 0 and inferior to " << idx << '.' << std::endl;
+					std::cin.clear();
+				}
 			}
 		}
 		else if (cmd == "EXIT")
