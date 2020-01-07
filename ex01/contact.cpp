@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 15:57:13 by malluin           #+#    #+#             */
-/*   Updated: 2019/08/15 16:23:38 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/07 13:09:41 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Contact::~Contact( void ) {
 
 void	Contact::add(void) {
 	this->used = 1;
-	std::cout << "\nPlease provide contact informations:" << std::endl;
+	std::cout << "Please provide contact informations:" << std::endl;
 	std::cout << "First name: ";
 	std::getline(std::cin, this->first_name);
 	std::cout << "Last name: ";
@@ -39,6 +39,10 @@ void	Contact::add(void) {
 	std::getline(std::cin, this->email_address);
 	std::cout << "Phone number: ";
 	std::getline(std::cin, this->phone_number);
+	std::cout << "Birthday date: ";
+	std::getline(std::cin, this->birthday_date);
+	std::cout << "Favorite meal: ";
+	std::getline(std::cin, this->favorite_meal);
 	std::cout << "Underwear color: ";
 	std::getline(std::cin, this->underwear_color);
 	std::cout << "Darkest secret: ";
@@ -56,6 +60,8 @@ void	Contact::display(void) {
 	std::cout << "Postal address: " << this->postal_address << std::endl;
 	std::cout << "Email address: " << this->email_address << std::endl;
 	std::cout << "Phone number: " << this->phone_number << std::endl;
+	std::cout << "Birthday date: " << this->birthday_date << std::endl;
+	std::cout << "Favorite meal: " << this->favorite_meal << std::endl;
 	std::cout << "Underwear color: " << this->underwear_color << std::endl;
 	std::cout << "Darkest secret: " << this->darkest_secret << std::endl;
 	return;

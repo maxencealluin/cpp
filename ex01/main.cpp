@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 16:00:50 by malluin           #+#    #+#             */
-/*   Updated: 2019/08/15 16:25:11 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/07 13:43:45 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <stdlib.h>
 
 void	ft_display(std::string var)
 {
@@ -31,7 +32,6 @@ void	display_contact(Contact instance, int j)
 	ft_display(instance.last_name);
 	ft_display(instance.nickname);
 	std::cout << std::endl;
-	return;
 }
 
 int		main(void)
@@ -41,12 +41,13 @@ int		main(void)
 	int			idx;
 	std::string	cmd;
 	int			choice;
+	std::string	tmp;
 
 	exit = 0;
 	idx = 0;
 	while (!exit)
 	{
-		std::cout << "\nPlease input command (SEARCH, ADD or EXIT): " ;
+		std::cout << "Please input command (SEARCH, ADD or EXIT): " ;
 		std::getline(std::cin, cmd, '\n');
 		if (cmd == "ADD")
 			if (idx == 8)
@@ -58,34 +59,37 @@ int		main(void)
 				instance[idx++].add();
 		else if (cmd == "SEARCH")
 		{
-			if (idx == -1)
-				std::cout << "\nNo available contacts:\n";
+			std::cout << "Available contacts:" << std::endl;
+			std::cout << std::setw(10) << "index" << '|';
+			std::cout << std::setw(10) << "first name" << '|';
+			std::cout << std::setw(10) << "last name" << '|';
+			std::cout << std::setw(10) << "nickname" << '|' << std::endl;
+			if (idx <= 0)
+			{
+				std::cout << std::endl << "No available contacts." << std::endl;
+			}
 			else
 			{
-				std::cout << "\nAvailable contacts:\n";
-				std::cout << std::setw(10) << "index" << '|';
-				std::cout << std::setw(10) << "first name" << '|';
-				std::cout << std::setw(10) << "last name" << '|';
-				std::cout << std::setw(10) << "nickname" << '|' << std::endl;
 				for (int j = 0;j < idx; j++)
 					display_contact(instance[j], j);
-				std::cout << "\nPlease enter the desired index: ";
+				std::cout << std::endl << "Please enter the desired index: ";
 				choice = -1;
 				std::cin >> choice;
-				std::cout << std::endl;
-				if (std::cin.good() && choice >= 0 && choice < idx)
-					instance[choice].display();
+				if (std::cin.fail() or (choice < 0 or choice >= idx))
+					std::cout << "Incorrect index, must be between 0 and " << idx - 1 << '.' << std::endl;
 				else
-				{
-					std::cout << "Incorrect index, must be between 0 and inferior to " << idx << '.' << std::endl;
-					std::cin.clear();
-				}
+					instance[choice].display();
+				std::cin.clear();
+				std::cin.ignore(10000, '\n');
 			}
 		}
 		else if (cmd == "EXIT")
 			exit = 1;
 		else
 			std::cout << "Invalid command." << std::endl;
+		std::cout << std::endl;
+		if (std::cin.eof())
+			exit = 1;
 	}
-	return 0;
+	return 1;
 }

@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 15:57:14 by malluin           #+#    #+#             */
-/*   Updated: 2019/08/15 16:22:29 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/07 12:12:20 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ public:
 	std::string postal_address;
 	std::string email_address;
 	std::string phone_number;
+	std::string favorite_meal;
+	std::string birthday_date;
 	std::string underwear_color;
 	std::string darkest_secret;
 	void	add(void);
