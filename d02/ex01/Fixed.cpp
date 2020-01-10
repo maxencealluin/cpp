@@ -6,11 +6,12 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 11:21:52 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/10 14:07:38 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/10 15:05:26 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 
 const int Fixed::_nb_fractionals = 8;
 
@@ -26,6 +27,29 @@ Fixed::Fixed(Fixed const & instance)
 	*this = instance;
 }
 
+Fixed::Fixed(int const val)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->_fpvalue =  val << Fixed::_nb_fractionals;
+}
+
+Fixed::Fixed(float const val)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->_fpvalue = roundf(val * (1 << Fixed::_nb_fractionals));
+}
+
+float 	Fixed::toFloat( void ) const
+{
+	return (float)(this->_fpvalue) / (1 << Fixed::_nb_fractionals);
+
+}
+
+int 	Fixed::toInt( void ) const
+{
+	return this->_fpvalue >> Fixed::_nb_fractionals;
+}
+
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
@@ -33,7 +57,6 @@ Fixed::~Fixed(void)
 
 int		Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return this->_fpvalue;
 }
 
@@ -48,4 +71,10 @@ Fixed & Fixed::operator=(Fixed const & rhs)
 	std::cout << "Assignation operator called" << std::endl;
 	this->_fpvalue = rhs.getRawBits();
 	return *this;
+}
+
+std::ostream& operator<<(std::ostream & stream, Fixed const & rhs)
+{
+	stream << rhs.toFloat();
+	return stream;
 }
