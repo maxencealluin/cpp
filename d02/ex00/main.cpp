@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/10 11:21:34 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/10 11:21:34 by malluin          ###   ########.fr       */
+/*   Created: 2020/01/10 11:32:00 by malluin           #+#    #+#             */
+/*   Updated: 2020/01/10 12:30:42 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_HPP
-# define HUMAN_HPP
+#include "Fixed.hpp"
 
-#include <iostream>
-#include <string>
-
-
-class Human
+int main (void)
 {
-	private:
-		void meleeAttack(std::string const & target);
-		void rangedAttack(std::string const & target);
-		void intimidatingShout(std::string const & target);
-	public:
-		void action(std::string const & action_name, std::string const & target);
-};
-#endif
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return 0;
+}

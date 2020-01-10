@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Human.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/10 11:21:37 by malluin           #+#    #+#             */
+/*   Updated: 2020/01/10 11:21:37 by malluin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Human.hpp"
 
 void Human::meleeAttack(std::string const & target)
@@ -16,7 +28,7 @@ void Human::intimidatingShout(std::string const & target)
 }
 
 void Human::action(std::string const & action_name, std::string const & target)
-{	
+{
 	std::string names[3] = {
 		"melee",
 		"ranged",
