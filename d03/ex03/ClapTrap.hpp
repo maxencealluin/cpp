@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:17:45 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 17:22:46 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/13 18:31:33 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ class ClapTrap
 		int				_melee_attack_damage;
 		int				_ranged_attack_damage;
 		int				_armor_damage_reduction;
+	private:
+		ClapTrap(void);
 };
 
 #endif

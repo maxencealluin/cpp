@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 10:56:02 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 16:49:47 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/13 18:32:44 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class FragTrap : public ClapTrap
 		void	rubberDucky(std::string const &target);
 		void	energyDrink(std::string const &target);
 		void	vaulthunter_dot_exe(std::string const & target);
+	private:
+		FragTrap(void);
 };
 
 #endif

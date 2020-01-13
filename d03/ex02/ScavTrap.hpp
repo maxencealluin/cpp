@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:17:45 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 17:11:52 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/13 18:32:54 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class ScavTrap : public ClapTrap
 		~ScavTrap();
 		ScavTrap &	operator=(ScavTrap const & rhs);
 		void		challengeNewcomer();
+	private:
+		ScavTrap(void);
 };
 
 #endif

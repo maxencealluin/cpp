@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
+/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/13 16:54:13 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 18:31:51 by malluin          ###   ########.fr       */
+/*   Created: 2020/01/13 17:26:08 by malluin           #+#    #+#             */
+/*   Updated: 2020/01/13 19:00:47 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NINJATRAP_HPP
-# define NINJATRAP_HPP
+#ifndef SUPERTRAP_HPP
+# define SUPERTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include "NinjaTrap.hpp"
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class	NinjaTrap : public ClapTrap
+class	SuperTrap : public  NinjaTrap, public FragTrap
 {
 	public:
-		NinjaTrap(std::string name);
-		NinjaTrap(NinjaTrap & instance);
-		~NinjaTrap();
-		NinjaTrap &	operator=(NinjaTrap & rhs);
-		void	ninjaShoebox(NinjaTrap & trap);
-		void	ninjaShoebox(ClapTrap & trap);
-		void	ninjaShoebox(ScavTrap & trap);
-		void	ninjaShoebox(FragTrap & trap);
+		SuperTrap(std::string name);
+		SuperTrap(SuperTrap & instance);
+		~SuperTrap();
+		SuperTrap &	operator=(SuperTrap & rhs);
+		void	rangedAttack(std::string const & target);
+		void	meleeAttack(std::string const & target);
 	private:
-		NinjaTrap(void);
+		SuperTrap(void);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:17:45 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 15:59:38 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/13 18:33:34 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ class ScavTrap
 		int				_melee_attack_damage;
 		int				_ranged_attack_damage;
 		int				_armor_damage_reduction;
+	private:
+		ScavTrap(void);
 };
 
 #endif

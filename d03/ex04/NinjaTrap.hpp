@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 16:54:13 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 18:31:51 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/13 18:34:33 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class	NinjaTrap : public ClapTrap
+class	NinjaTrap : virtual public ClapTrap
 {
 	public:
 		NinjaTrap(std::string name);

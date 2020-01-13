@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 10:56:02 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 18:31:43 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/13 18:34:25 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
 		FragTrap(std::string name);
@@ -25,6 +25,8 @@ class FragTrap : public ClapTrap
 		void	sacrifice(std::string const &target);
 		void	rubberDucky(std::string const &target);
 		void	energyDrink(std::string const &target);
+		void	kickAttack(std::string const & target);
+		void	punchAttack(std::string const & target);
 		void	vaulthunter_dot_exe(std::string const & target);
 	private:
 		FragTrap(void);
