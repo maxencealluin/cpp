@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/13 10:55:59 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 16:01:27 by malluin          ###   ########.fr       */
+/*   Created: 2020/01/13 13:17:45 by malluin           #+#    #+#             */
+/*   Updated: 2020/01/13 16:02:55 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : _name(name)
+ScavTrap::ScavTrap(std::string name) : _name(name)
 {
 	this->_hitpoints = 100;
 	this->_max_hit_points = 100;
-	this->_energy_points = 100;
-	this->_max_energy_points = 100;
+	this->_energy_points = 50;
+	this->_max_energy_points = 50;
 	this->_level = 1;
-	this->_melee_attack_damage = 30;
-	this->_ranged_attack_damage = 20;
-	this->_armor_damage_reduction = 5;
-	std::cout << "Here I am ! The most annoying character ever created !" << std::endl;
+	this->_melee_attack_damage = 20;
+	this->_ranged_attack_damage = 15;
+	this->_armor_damage_reduction = 3;
+	std::cout << "You think FragTrap was bad? I am an even worse character "
+		<< "because the developers have a bad sense of humor." << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap const & instance)
+ScavTrap::ScavTrap(ScavTrap const & instance)
 {
 	*this = instance;
-	std::cout << "Here I am ! A copy of the most annoying character ever created !" << std::endl;
+	std::cout << "Hello new me!" << std::endl;
 }
 
-FragTrap::~FragTrap()
+ScavTrap::~ScavTrap()
 {
-	std::cout << this->_name << " Bip bop. No more purpose. Autodestruction." << std::endl;
+		std::cout << this->_name << " En Route for robot heaven !" << std::endl;
 }
 
-FragTrap & FragTrap::operator=(FragTrap const & rhs)
+ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
 {
 	this->_hitpoints = rhs._hitpoints;
 	this->_max_hit_points = rhs._max_hit_points;
@@ -50,14 +51,29 @@ FragTrap & FragTrap::operator=(FragTrap const & rhs)
 	return *this;
 }
 
-void	FragTrap::rangedAttack(std::string const & target)
+void		ScavTrap::challengeNewcomer()
+{
+	std::string	types[5] = {
+		"Duck Hunt",
+		"Geese Arena",
+		"Meatballs Challenge",
+		"Road rage murderous spree",
+		"Gigantic rooster deathmatch"
+	};
+	std::cout << "You want a challenge? I'll give you one !" << std::endl;
+	std::cout << "Let's see if fate is on your side ..." << std::endl;
+	std::cout << "Gods have mercy on you as you face the infamous '"
+		<< types[std::rand() % 5] << "' challenge ! Good luck !" << std::endl << std::endl;
+}
+
+void	ScavTrap::rangedAttack(std::string const & target)
 {
 	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " with a ranged attack !" << std::endl;
 	std::cout << target << " takes " << this->_ranged_attack_damage
 		<< " damage ! Ouch !" << std::endl;
 }
 
-void	FragTrap::meleeAttack(std::string const & target)
+void	ScavTrap::meleeAttack(std::string const & target)
 {
 	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " with a melee attack !" << std::endl;
 	std::cout << target << " takes " << this->_melee_attack_damage
@@ -65,7 +81,7 @@ void	FragTrap::meleeAttack(std::string const & target)
 }
 
 
-void	FragTrap::sacrifice(std::string const &target)
+void	ScavTrap::sacrifice(std::string const &target)
 {
 	(void)target;
 	this->_hitpoints = 0;
@@ -75,7 +91,7 @@ void	FragTrap::sacrifice(std::string const &target)
 	return;
 }
 
-void	FragTrap::rubberDucky(std::string const &target)
+void	ScavTrap::rubberDucky(std::string const &target)
 {
 	(void)target;
 	this->_max_hit_points = this->_max_hit_points * 1.5;
@@ -84,7 +100,7 @@ void	FragTrap::rubberDucky(std::string const &target)
 	return;
 }
 
-void	FragTrap::energyDrink(std::string const &target)
+void	ScavTrap::energyDrink(std::string const &target)
 {
 	(void)target;
 	this->_energy_points = this->_energy_points += 50;
@@ -95,7 +111,7 @@ void	FragTrap::energyDrink(std::string const &target)
 	return;
 }
 
-void	FragTrap::takeDamage(unsigned int amount)
+void	ScavTrap::takeDamage(unsigned int amount)
 {
 	if (this->_armor_damage_reduction >= int(amount))
 	{
@@ -112,7 +128,7 @@ void	FragTrap::takeDamage(unsigned int amount)
 	std::cout << " Current Health: " << this->_hitpoints << "/" << this->_max_hit_points << std::endl;
 }
 
-void	FragTrap::beRepaired(unsigned int amount)
+void	ScavTrap::beRepaired(unsigned int amount)
 {
 	if (this->_hitpoints + int(amount) > this->_max_hit_points)
 		this->_hitpoints = this->_max_hit_points;
@@ -121,31 +137,4 @@ void	FragTrap::beRepaired(unsigned int amount)
 	std::cout << "FR4G-TP " << this->_name << " is repaired for " << amount << " of damage !";
 	std::cout << " Current Health: " << this->_hitpoints << "/" << this->_max_hit_points << std::endl;
 
-}
-
-void	FragTrap::vaulthunter_dot_exe(std::string const & target)
-{
-	void	(FragTrap::*ptr[5])(std::string const &) =
-	{
-		&FragTrap::rangedAttack,
-		&FragTrap::meleeAttack,
-		&FragTrap::sacrifice,
-		&FragTrap::rubberDucky,
-		&FragTrap::energyDrink
-	};
-	std::string	types[5] = {
-		"rangedAttack",
-		"meleeAttack",
-		"sacrifice",
-		"rubberDucky",
-		"energyDrink"
-	};
-	if (this->_energy_points < 25)
-		std::cout << "Not enough energy points left !" << std::endl;
-	else
-	{
-		this->_energy_points -= 25;
-		(this->*ptr[std::rand() % 5])(target);
-	}
-	std::cout << std::endl;
 }
