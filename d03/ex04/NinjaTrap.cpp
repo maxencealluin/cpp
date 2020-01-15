@@ -6,11 +6,20 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 16:54:12 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 18:52:27 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/15 11:12:09 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "NinjaTrap.hpp"
+
+int const	NinjaTrap::_HitPoints = 60;
+int const	NinjaTrap::_maxHitPoints = 60;
+int const	NinjaTrap::_initialLevel = 1;
+int const	NinjaTrap::_EnergyPoints = 120;
+int const	NinjaTrap::_maxEnergyPoints = 120;
+int const	NinjaTrap::_meleeAttackDamage = 60;
+int const	NinjaTrap::_rangedAttackDamage = 5;
+int const	NinjaTrap::_armorDamageReduction = 0;
 
 NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 {

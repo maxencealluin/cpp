@@ -6,11 +6,20 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 10:55:59 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 18:55:36 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/15 11:11:20 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+int const	FragTrap::_HitPoints = 100;
+int const	FragTrap::_EnergyPoints = 100;
+int const	FragTrap::_initialLevel = 1;
+int const	FragTrap::_maxHitPoints = 100;
+int const	FragTrap::_maxEnergyPoints = 100;
+int const	FragTrap::_meleeAttackDamage = 30;
+int const	FragTrap::_rangedAttackDamage = 20;
+int const	FragTrap::_armorDamageReduction = 5;
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {

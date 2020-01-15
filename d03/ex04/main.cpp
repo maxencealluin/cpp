@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 12:27:11 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 18:35:31 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/15 11:24:13 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,16 @@ int		main()
 
 	std::cout << "==== SUPER ==== "<<std::endl;
 	SuperTrap super("superBot");
-	// std::cout << std::endl;
+	super.showStats();
+	std::cout << std::endl;
+	SuperTrap super2(super);
+	super2.showStats();
+	std::cout << std::endl;
+
+	super.rangedAttack("player");
+	super.meleeAttack("player");
+	super.takeDamage(20);
+	super.beRepaired(20);
+	std::cout << std::endl;
 	return 1;
 }

@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 10:56:02 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 18:34:25 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/15 11:11:12 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,16 @@ class FragTrap : virtual public ClapTrap
 		void	kickAttack(std::string const & target);
 		void	punchAttack(std::string const & target);
 		void	vaulthunter_dot_exe(std::string const & target);
-	private:
+	protected:
 		FragTrap(void);
+		static	int const	_initialLevel;
+		static	int const	_HitPoints;
+		static	int const	_maxHitPoints;
+		static	int const	_EnergyPoints;
+		static	int const	_maxEnergyPoints;
+		static	int const	_meleeAttackDamage;
+		static	int const	_rangedAttackDamage;
+		static	int const	_armorDamageReduction;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:17:45 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/13 18:48:32 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/15 11:24:43 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,14 @@ std::string	ClapTrap::getName()
 
 void	ClapTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " with a ranged attack !" << std::endl;
+	std::cout << this->_name << " attacks " << target << " with a ranged attack !" << std::endl;
 	std::cout << target << " takes " << this->_ranged_attack_damage
 		<< " damage ! Ouch !" << std::endl;
 }
 
 void	ClapTrap::meleeAttack(std::string const & target)
 {
-	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " with a melee attack !" << std::endl;
+	std::cout << this->_name << " attacks " << target << " with a melee attack !" << std::endl;
 	std::cout << target << " takes " << this->_melee_attack_damage
 		<< " damage ! Ouch !" << std::endl;
 }
