@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 11:28:30 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/16 16:22:26 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/16 16:25:15 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,11 @@ void	Bureaucrat::signForm(bool success, Form const & form)
 			std::cout << " because his grade is too low." << std::endl;
 	}
 
+}
+
+void	Bureaucrat::executeForm(Form const & form)
+{
+	form.execute(*this);
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException() {}
