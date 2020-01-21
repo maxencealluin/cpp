@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 18:27:17 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/21 11:48:05 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/21 11:51:24 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ Data * deserialize(void * raw)
 	data->s2 = "";
 	for (int i = 0; i < 8; i++)
 		data->s1 += str[i];
+	data->s1[8] = '\0';
 	data->n = *reinterpret_cast<int *>(&(str[8]));
 	for (int i = 0; i < 8; i++)
 		data->s2 += str[length - 8 + i];
+	data->s1[20] = '\0';
 	return data;
 }
