@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 11:39:13 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/23 17:51:16 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/24 17:37:13 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ TScreen::TScreen()
 	cbreak();
 	nodelay(stdscr, TRUE);
 	noecho();
+	curs_set(0);
 	keypad(stdscr, TRUE);
 }
 
@@ -39,6 +40,16 @@ void	TScreen::borders()
 		for (int i = 1; i < (COLS) - 1; i++)
 			printw("*");
 	}
+}
+
+void	TScreen::gameOver()
+{
+	clear();
+	wmove(stdscr, LINES/2, COLS/2);
+	printw("**** GAME OVER ****");
+	wmove(stdscr, LINES/2 + 1, COLS/2 + 1);
+	printw("THE ENTIRE HUMAN RACE IS DOOMED.");
+	refresh();
 }
 
 void	TScreen::refresh_screen()
@@ -63,14 +74,27 @@ void	TScreen::refresh_screen()
 
 void	TScreen::draw_entity(AMovingEntity * ent)
 {
-	wmove(stdscr, ent->getPos().y, ent->getPos().x);
-	printw(ent->getSkin());
+	int x = ent->getPos().x;
+	int y = ent->getPos().y;
+
+	if (x > 0 && x < (COLS - 1) && y > (WALL_THICK) && y < (LINES - WALL_THICK - 1))
+	{
+		wmove(stdscr, ent->getPos().y, ent->getPos().x);
+		printw(ent->getSkin());
+	}
+
 }
 
 void	TScreen::draw_entity(AMovingEntity * ent, const char * skin)
 {
-	wmove(stdscr, ent->getPos().y, ent->getPos().x);
-	printw(skin);
+	int x = ent->getPos().x;
+	int y = ent->getPos().y;
+
+	if (x > 0 && x < (COLS - 1) && y > (WALL_THICK) && y < (LINES - WALL_THICK - 1))
+	{
+		wmove(stdscr, ent->getPos().y, ent->getPos().x);
+		printw(skin);
+	}
 }
 
 TScreen::~TScreen()

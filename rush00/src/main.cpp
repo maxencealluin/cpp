@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 11:12:08 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/23 17:46:18 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/24 18:04:36 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,35 @@ int		main()
 	GameController controller(screen);
 	int ch;
 
-	Player player;
-
-	std::cout << player.getPos().x << std::endl;
-	std::cout << player.getPos().y << std::endl;
-	std::cout << player.getSkin() << std::endl;
-	std::cout << player.getColor() << std::endl;
-
+	controller.initialize_game();
+	clock_t beg = clock();
 	while (true)
 	{
-		if ((ch = getch()) != ERR)
+		if ((clock() - beg) < 12000)
+			continue;
+		else
+			beg = clock();
+		// std::cout <<  clock() - beg << std::endl;
+		// sleep(1);
+		ch	=  getch();
+		if (ch == KEY_ESCAPE)
+			break;
+		if(!controller.game_loop(ch))
 		{
-			if (ch == KEY_ESCAPE)
-				break;
-			else
-				controller.move_entities(ch);
-			// std::cout << player.getPos().x << std::endl;
-			// std::cout << player.getPos().y << std::endl;
+			screen.gameOver();
+			sleep(3);
+			break;
 		}
+		//
+		//
+		//
+		// if ((ch = getch()) != ERR)
+		// {
+		// 	if (ch == KEY_ESCAPE)
+		// 		break;
+		// 	else
+		// }
+		// else
 		screen.refresh_screen();
 	}
 	return 1;

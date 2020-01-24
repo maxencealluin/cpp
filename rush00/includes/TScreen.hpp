@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 11:26:39 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/23 17:55:01 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/24 17:28:25 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class TScreen {
 		~TScreen();
 		void	borders();
 		void	refresh_screen();
+		void	gameOver();
 		void	draw_entity(AMovingEntity *);
 		void	draw_entity(AMovingEntity *, const char *);
 

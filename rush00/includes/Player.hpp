@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:00:09 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/23 17:55:21 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/24 13:46:06 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Player : public AMovingEntity {
 		~Player();
 		void	getHit();
 		void	move(int, int);
+		// const char * getBulletSkin();
 
 	private:
 		Player(Player & instance);

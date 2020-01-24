@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Player.cpp                                         :+:      :+:    :+:   */
+/*   Enemy.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:01:58 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/24 15:10:28 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/24 15:21:52 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Player.hpp"
+#include "Enemy.hpp"
 
-Player::Player() : AMovingEntity(10, 30, 1), _alive(1)
+Enemy::Enemy(int x, int y) : AMovingEntity(x, y, -1), _alive(1)
 {
-	this->_skin = ">";
-	this->_bulletSkin = "=";
+	this->_skin = "E";
+	this->_bulletSkin = "-";
 }
 
-Player::~Player()
+Enemy::~Enemy()
 {
 }
 
-void	Player::getHit()
+void	Enemy::getHit()
 {
 	this->_alive = 0;
 }
 
-// const char * Player::getBulletSkin() { return this->_bulletSkin;}
+// void	Enemy::move()
+// {
+// 		this->_pos.x += this->_dir;
+// }
 
+// const char * Enemy::getBulletSkin() { return this->_bulletSkin;}
 
-void	Player::move(int xdiff, int ydiff)
+void	Enemy::move(int xdiff, int ydiff)
 {
 	if (this->_pos.x + xdiff > 0
 		&& this->_pos.x + xdiff < (COLS - 1))

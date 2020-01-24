@@ -6,12 +6,12 @@
 #    By: malluin <malluin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/10 11:21:20 by malluin           #+#    #+#              #
-#    Updated: 2020/01/21 10:48:36 by malluin          ###   ########.fr        #
+#    Updated: 2020/01/22 12:05:20 by malluin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = serialize
 CC = clang++
-# CCFLAGS = -Wall -Werror -Wextra
+CCFLAGS = -Wall -Werror -Wextra
 
 SRC = main.cpp serialization.cpp
 OBJS := $(SRC:.cpp=.o)

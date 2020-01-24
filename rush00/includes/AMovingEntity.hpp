@@ -6,7 +6,7 @@
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:03:38 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/23 17:54:58 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/24 14:53:30 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ typedef struct s_pos {
 class AMovingEntity : public IGameEntity {
 	public:
 		AMovingEntity();
-		AMovingEntity(int, int);
-		~AMovingEntity();
+		AMovingEntity(int, int, int);
+		virtual ~AMovingEntity();
 		virtual void getHit() = 0;
 		virtual void move(int, int) = 0;
+		void move();
+		const char * getBulletSkin();
 
 		const char	*getSkin() const;
 		std::string getColor() const;
@@ -39,6 +41,8 @@ class AMovingEntity : public IGameEntity {
 		const char 	*_skin;
 		std::string _color;
 		t_pos		_pos;
+		int			_dir;
+		const char * _bulletSkin;
 };
 
 #endif

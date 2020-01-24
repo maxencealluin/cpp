@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   OfficeBlock.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/20 13:05:16 by malluin           #+#    #+#             */
+/*   Updated: 2020/01/20 13:05:17 by malluin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "OfficeBlock.hpp"
 
 OfficeBlock::OfficeBlock() : _intern(NULL), _sbureaucrat(NULL), _ebureaucrat(NULL){}
@@ -81,4 +93,3 @@ const char* OfficeBlock::BureaucracyException::what() const throw()
 {
 	return ("Can't do bureaucracy ! Must be past 4 PM...");
 }
-

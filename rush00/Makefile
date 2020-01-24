@@ -6,19 +6,21 @@
 #    By: malluin <malluin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/10 11:21:20 by malluin           #+#    #+#              #
-#    Updated: 2020/01/23 15:41:48 by malluin          ###   ########.fr        #
+#    Updated: 2020/01/24 13:14:50 by malluin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = ft_retro
 CC = clang++
-CCFLAGS = -Wall -Werror -Wextra
+# CCFLAGS = -Wall -Werror -Wextra
 LIBFLAGS = -lncurses
 
 SRC_FILE = 	main.cpp  \
 			TScreen.cpp \
 			Player.cpp \
 			AMovingEntity.cpp \
-			GameController.cpp
+			GameController.cpp \
+			Enemy.cpp \
+			Bullet.cpp
 
 OBJ_FILE = $(SRC_FILE:.cpp=.o)
 

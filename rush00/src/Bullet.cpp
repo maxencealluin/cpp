@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Player.cpp                                         :+:      :+:    :+:   */
+/*   Bullet.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:01:58 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/24 15:10:28 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/24 14:07:29 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Player.hpp"
+#include "Bullet.hpp"
 
-Player::Player() : AMovingEntity(10, 30, 1), _alive(1)
+Bullet::Bullet(const char *skin, int x, int y, int dir) :
+	AMovingEntity(x, y, dir), _alive(1)
 {
-	this->_skin = ">";
-	this->_bulletSkin = "=";
+	this->_skin = skin;
+	this->_bulletSkin = skin;
 }
 
-Player::~Player()
+Bullet::~Bullet()
 {
 }
 
-void	Player::getHit()
+void	Bullet::getHit()
 {
 	this->_alive = 0;
 }
 
-// const char * Player::getBulletSkin() { return this->_bulletSkin;}
+int		Bullet::getDir() { return this->_dir;}
+
+// const char * Bullet::getBulletSkin() { return this->_skin;}
 
 
-void	Player::move(int xdiff, int ydiff)
+void	Bullet::move(int xdiff, int ydiff)
 {
 	if (this->_pos.x + xdiff > 0
 		&& this->_pos.x + xdiff < (COLS - 1))

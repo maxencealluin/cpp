@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   resources.hpp                                      :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:00:09 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/24 17:52:37 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/24 15:21:46 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RESOURCES_HPP
-# define RESOURCES_HPP
+#ifndef ENEMY_HPP
+# define ENEMY_HPP
 
-#include <ncurses.h>
-#include <iostream>
-#include <unistd.h>
-#include <time.h>
-#define KEY_ESCAPE 27
-#define KEY_SPACE 32
-#define WALL_THICK 3
+#include "AMovingEntity.hpp"
+#include "resources.hpp"
+
+class Enemy : public AMovingEntity {
+	public:
+		Enemy(int, int);
+		~Enemy();
+		void	getHit();
+		void	move(int, int);
+		// const char * getBulletSkin();
+
+	private:
+		Enemy();
+		Enemy(Enemy & instance);
+		Enemy & operator=(Enemy & rhs);
+		bool _alive;
+};
 
 #endif

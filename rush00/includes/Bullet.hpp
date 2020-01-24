@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   resources.hpp                                      :+:      :+:    :+:   */
+/*   Bullet.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malluin <malluin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:00:09 by malluin           #+#    #+#             */
-/*   Updated: 2020/01/24 17:52:37 by malluin          ###   ########.fr       */
+/*   Updated: 2020/01/24 14:07:33 by malluin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RESOURCES_HPP
-# define RESOURCES_HPP
+#ifndef BULLET_HPP
+# define BULLET_HPP
 
-#include <ncurses.h>
-#include <iostream>
-#include <unistd.h>
-#include <time.h>
-#define KEY_ESCAPE 27
-#define KEY_SPACE 32
-#define WALL_THICK 3
+#include "AMovingEntity.hpp"
+#include "resources.hpp"
+
+class Bullet : public AMovingEntity {
+	public:
+		Bullet(const char *, int, int, int);
+		~Bullet();
+		void	getHit();
+		void	move(int, int);
+		int		getDir();
+		// const char * getBulletSkin();
+
+	private:
+		Bullet();
+		Bullet(Bullet & instance);
+		Bullet & operator=(Bullet & rhs);
+		bool _alive;
+};
 
 #endif
